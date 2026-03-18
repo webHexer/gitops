@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zenml-{{ .Values.workspace }}
+  labels:
+    app: zenml
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zenml
+      workspace: { { .Values.workspace } }
+  template:
+    metadata:
+      labels:
+        app: zenml
+        workspace: { { .Values.workspace } }
+    spec:
+      containers:
+        - name: zenml
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: { { .Values.service.targetPort } }

@@ -1,0 +1,4 @@
+apiVersion: v2
+name: zenml
+description: ZenML server chart
+version: 0.1.0
