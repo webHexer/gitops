@@ -1,6 +1,0 @@
-dependencies:
-- name: zenml
-  repository: file://../../zenml-chart
-  version: 0.1.0
-digest: sha256:65a3a55780c562038586044f36ac54b8fc3f56fb6d63951fc57e84107fc80784
-generated: "2026-03-19T23:21:18.465118+05:30"
