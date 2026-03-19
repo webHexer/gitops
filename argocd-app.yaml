@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: zenml-workspaces
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/webHexer/gitops.git
+        revision: HEAD
+        directories:
+          - path: workspaces/*   # ✅ this works here
+
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+
+      source:
+        repoURL: https://github.com/webHexer/gitops.git
+        targetRevision: HEAD
+        path: '{{path}}'
+
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: 'zenml-{{path.basename}}'
+
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
