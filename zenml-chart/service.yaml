@@ -5,9 +5,9 @@ metadata:
 spec:
   selector:
     app: zenml
-    workspace: { { .Values.workspace } }
+    workspace: {{ .Values.workspace }}
   ports:
     - protocol: TCP
-      port: { { .Values.service.port } }
-      targetPort: { { .Values.service.targetPort } }
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
   type: ClusterIP

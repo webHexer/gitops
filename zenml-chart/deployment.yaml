@@ -9,15 +9,15 @@ spec:
   selector:
     matchLabels:
       app: zenml
-      workspace: { { .Values.workspace } }
+      workspace: {{ .Values.workspace }}
   template:
     metadata:
       labels:
         app: zenml
-        workspace: { { .Values.workspace } }
+        workspace: {{ .Values.workspace }}
     spec:
       containers:
         - name: zenml
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
-            - containerPort: { { .Values.service.targetPort } }
+            - containerPort: {{ .Values.service.targetPort }}
