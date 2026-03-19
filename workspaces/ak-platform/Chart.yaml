@@ -1,0 +1,10 @@
+
+        apiVersion: v2
+        name: zenml-ak-platform
+        version: 0.1.0
+
+        dependencies:
+        - name: zenml
+            version: 0.1.0
+            repository: "file://../../zenml-chart"
+    
