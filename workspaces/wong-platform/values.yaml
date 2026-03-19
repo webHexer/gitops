@@ -1,5 +1,6 @@
+
 zenml:
-  workspace: won-platform
+  workspace: wong-platform
 
   image:
     repository: zenmldocker/zenml-server
