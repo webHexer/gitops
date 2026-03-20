@@ -9,7 +9,7 @@ spec:
         repoURL: https://github.com/webHexer/gitops.git
         revision: HEAD
         directories:
-          - path: workspaces/*   # ✅ this works here
+          - path: workspaces/*
 
   template:
     metadata:
@@ -20,14 +20,14 @@ spec:
       source:
         repoURL: https://github.com/webHexer/gitops.git
         targetRevision: HEAD
-        path: zenml-chart                          # ← always the shared chart
+        path: zenml-chart
         helm:
           valueFiles:
-            - workspaces/{{path.basename}}/values.yaml   # ← per-workspace overrides
+            - workspace-values/{{path.basename}}.yaml
 
       destination:
         server: https://kubernetes.default.svc
-        namespace: 'zenml'
+        namespace: zenml
 
       syncPolicy:
         automated:
