@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: zenml-{{ .Values.workspace }}
+  name: zenml
   labels:
     app: zenml
 spec:
