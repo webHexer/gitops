@@ -23,7 +23,7 @@ spec:
         path: zenml-chart
         helm:
           valueFiles:
-            - workspace-values/{{path.basename}}.yaml
+            - ../workspaces/{{path.basename}}/values.yaml 
 
       destination:
         server: https://kubernetes.default.svc
