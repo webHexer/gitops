@@ -20,7 +20,10 @@ spec:
       source:
         repoURL: https://github.com/webHexer/gitops.git
         targetRevision: HEAD
-        path: '{{path}}'
+        path: zenml-chart                          # ← always the shared chart
+        helm:
+          valueFiles:
+            - workspaces/{{path.basename}}/values.yaml   # ← per-workspace overrides
 
       destination:
         server: https://kubernetes.default.svc
