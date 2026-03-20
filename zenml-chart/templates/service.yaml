@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: zenml
+  name: zenml-service-{{ .Values.workspace }}
 spec:
   selector:
     app: zenml
