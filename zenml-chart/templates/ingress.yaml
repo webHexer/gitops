@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: zenml-ingress-{{ .Values.workspace }}
+  namespace: zenml
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /{{ .Values.workspace }}(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: zenml-service-{{ .Values.workspace }}
+                port:
+                  number: 80
