@@ -1,6 +1,6 @@
 
 zenml:
-  workspace: go-platform
+  workspace: son-platform
 
   image:
     repository: zenmldocker/zenml-server
